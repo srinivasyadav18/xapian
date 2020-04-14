@@ -20,7 +20,9 @@ all : build
 
 build :
 	${SWIG} ${SWIG_FLAGS} -c++ -go -cgo -intgosize 64 go.i
-	${AWK} 'NR==18{print "#cgo pkg-config: xapian-core-1.5"}1' xapian.go > xapian2.go
+	${AWK} 'NR==18{print "#cgo LDFLAGS: ${XAPIAN_CONFIG} --libs" RS\
+		"#cgo CXXFLAGS: ${XAPIAN_CONFIG} --cxxflags" RS\
+		"#cgo CPPFLAGS: ${CPPFLAGS} "}1' xapian.go > xapian2.go
 	mv xapian2.go xapian.go
 	${GO} env -w CXX="${CXX}"
 check :
