@@ -129,4 +129,4 @@ build_script:
   - bash -c 'time ./configure $CONFIGOPTS --with-go'
   - bash -c 'time make -j2' < nul
 test_script:
-  - bash -c 'time make check VERBOSE=1' < nul
+  - bash -c 'cd xapian-bindings && time make check VERBOSE=1' < nul
