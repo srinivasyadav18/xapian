@@ -30,6 +30,7 @@ build :
 	${AWK} 'NR==18{print "#cgo CXXFLAGS: -I $(abs_top_builddir)../xapian-core/include/" RS\
 		"#cgo CXXFLAGS: ${CXXFLAGS}" RS\
 		"#cgo CPPFLAGS: ${CPPFLAGS}"}1' xapian.go > xapian2.go
+	head -40 xapian.go
 	mv xapian2.go xapian.go
 	${GO} env -w CXX="${CXX}"
 check :
