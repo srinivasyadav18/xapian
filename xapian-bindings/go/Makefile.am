@@ -1,4 +1,5 @@
-GOSRCDIR = ${GOPATH}/src/xapian
+GOTREE="/c/Users/appveyor/go"
+GOSRCDIR = ${GOTREE}/src/xapian
 TESTS = ./test
 AM_TESTS_ENVIRONMENT = \
 	abs_builddir='$(abs_builddir)' ;\
@@ -15,12 +16,11 @@ all : modify
 	${GO} build -i -x -a
 
 # 	${GO} enw -w GOPATH=/mingw64
-
 modify : build
-	${MKDIR_P} ${GOPATH}
-	${MKDIR_P} ${GOPATH}/bin
-	${MKDIR_P} ${GOPATH}/src
-	${MKDIR_P} ${GOPATH}/pkg
+	${MKDIR_P} ${GOTREE}
+	${MKDIR_P} ${GOTREE}/bin
+	${MKDIR_P} ${GOTREE}/src
+	${MKDIR_P} ${GOTREE}/pkg
 	${MKDIR_P} ${GOSRCDIR}
 	cp -r * ${GOSRCDIR}
 
