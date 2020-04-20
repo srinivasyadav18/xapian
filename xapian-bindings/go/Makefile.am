@@ -14,6 +14,8 @@ all : modify
 	cd ${GOSRCDIR}
 	${GO} build -i -x -a
 
+# 	${GO} enw -w GOPATH=/mingw64
+
 modify : build
 	${MKDIR_P} ${GOPATH}
 	${MKDIR_P} ${GOPATH}/bin
