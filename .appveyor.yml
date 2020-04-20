@@ -99,6 +99,7 @@ install:
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'ls -lah /mingw64; ls -lah /mingw64/lib/go/ ; ls -lah /mingw64/lib/go/bin'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'echo $"GOROOT" ; echo $"GOPATH"'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'go env'
+  - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Q'
   # Install cygwin git and patch packages since those installed in the image
   # want the 32-bit cygwin1.dll which means they fail to work if the 64-bit
   # cygwin1.dll is first on PATH.
@@ -129,4 +130,4 @@ build_script:
   - bash -c 'time ./configure $CONFIGOPTS --with-go'
   - bash -c 'time make -j2' < nul
 test_script:
-  - bash -c 'cd xapian-bindings && time make check VERBOSE=1' < nul
+  - bash -c 'cd xapian-bindings && make check VERBOSE=1'
