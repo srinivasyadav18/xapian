@@ -93,7 +93,7 @@ install:
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Sy --noconfirm libcrypt-devel libuuid-devel zlib-devel base-devel gcc m4 perl git help2man patch doxygen mingw-w64-x86_64-graphviz python-pip'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pip install docutils'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pip install sphinx'
-  - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Sy mingw-w64-x86_64-go'
+  - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Syu mingw-w64-x86_64-go'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'export GOROOT=/mingw64/lib/go'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'export GOPATH=/mingw64'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'go env'
