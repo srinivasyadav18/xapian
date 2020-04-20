@@ -33,7 +33,7 @@ build :
 		"#cgo CPPFLAGS: ${CPPFLAGS}"}1' xapian.go > xapian2.go
 	head -100 xapian.go
 	mv xapian2.go xapian.go
-	${GO} env -w CXXFLAGS="-I $(abs_top_builddir)../xapian-core/include/"
+	${GO} env -w CGO_CXXFLAGS="-I $(abs_top_builddir)../xapian-core/include/"
 	${GO} env -w CXX="${CXX}"
 check :
 	cd ${GOSRCDIR}/test && ${GO} test
