@@ -14,6 +14,7 @@ install-data-hook:
 all : modify
 	cd ${GOSRCDIR}
 	${GO} build -x -work
+	${GO} test ./test
 
 # 	${GO} enw -w GOPATH=/mingw64
 modify : build
