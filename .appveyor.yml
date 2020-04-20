@@ -89,7 +89,7 @@ install:
       }
   # - if "%TOOLCHAIN%"=="mingw" bash -c "echo 'c:/mingw /mingw' >> /etc/fstab"
   # - if "%TOOLCHAIN%"=="mingw" bash -c 'mingw-get install libz-dev'
-  - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Syu'
+  - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Syu --noconfirm'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Sy --noconfirm libuuid-devel zlib-devel base-devel gcc m4 perl git help2man patch'
   # Install cygwin git and patch packages since those installed in the image
   # want the 32-bit cygwin1.dll which means they fail to work if the 64-bit
