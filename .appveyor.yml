@@ -93,7 +93,7 @@ install:
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Sy --noconfirm libcrypt-devel libuuid-devel zlib-devel base-devel gcc m4 perl git help2man patch doxygen mingw-w64-x86_64-graphviz python-pip'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pip install docutils'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pip install sphinx'
-  - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Syu --noconfirm mingw-w64-x86_64-go'
+  - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Syu --noconfirm mingw-w64-x86_64-go mingw-w64-x86_64-gcc'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'export GOROOT=/mingw64/lib/go'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'export GOPATH=/mingw64'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'ls -lah /mingw64; ls -lah /mingw64/lib/go/ ; ls -lah /mingw64/lib/go/bin'
@@ -127,7 +127,7 @@ install:
   #       $env:LDFLAGS="-Lc:/projects/xapian/zlib"
   #     }
 build_script:
-  - bash -c 'time ./configure $CONFIGOPTS --with-go'
+  - bash -c 'time ./configure $CONFIGOPTS CXX=x86_64-w64-mingw32-g++ CC=x86_64-w64-mingw32-gcc --with-go'
   - bash -c 'time make -j2' < nul
 test_script:
   - bash -c 'cd xapian-bindings && make check VERBOSE=1'

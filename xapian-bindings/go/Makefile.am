@@ -36,6 +36,7 @@ build :
 	mv xapian2.go xapian.go
 	${GO} env -w CGO_CXXFLAGS="-I $(abs_top_builddir)/../xapian-core/include/"
 	${GO} env -w CXX="${CXX}"
+	${GO} env -w CC="${CC}"
 check :
 	cd ${GOSRCDIR}/test && ${GO} test
 clean :
