@@ -96,7 +96,7 @@ install:
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Syu --noconfirm --needed mingw-w64-i686-go mingw-w64-i686-gcc'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'export GOROOT=/mingw64/lib/go'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'export GOPATH=/mingw64'
-  - if "%TOOLCHAIN%"=="mingw64" bash -c 'ls -lah /mingw64; ls -lah /mingw64/lib/go/ ; ls -lah /mingw64/lib/go/bin'
+  # - if "%TOOLCHAIN%"=="mingw64" bash -c 'ls -lah /mingw64; ls -lah /mingw64/lib/go/ ; ls -lah /mingw64/lib/go/bin'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'echo $"GOROOT" ; echo $"GOPATH"'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'go env'
   - if "%TOOLCHAIN%"=="mingw64" bash -c 'pacman -Q'
