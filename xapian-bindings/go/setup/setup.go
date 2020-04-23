@@ -86,8 +86,11 @@ func main() {
 		lc = strings.Join(temp[1:]," ")
 	}
 
-	xapian_bindings = filepath.Join(xapian_bindings)
+	xapian_bindings = filepath.Join("../../")
+	xapian_bindings,_ = filepath.Abs(xapian_bindings)
+	
 	fmt.Println("xapian_bindings - ",xapian_bindings)
+	
 	xapian_core := filepath.Join(xapian_bindings ,"/../xapian-core/")
 	fmt.Println("xapian-core - ",xapian_core)
 	xapian_headers := filepath.Join(xapian_core,"include/")
@@ -95,7 +98,7 @@ func main() {
 		 
 	pkgconfig_path := filepath.Join(xapian_core,"pkgconfig")
 	fmt.Println("pkgconfig - ",pkgconfig_path)
-
+	
 	files_pkgconfig, err := ioutil.ReadDir(pkgconfig_path)
 
 	if err != nil {
@@ -109,9 +112,8 @@ func main() {
 			break
 		}
 	}
-
+	
 	fmt.Println("xapian_pkgconfig_path - ",xapian_pkgconfig_path)
-
 	config, err := os.Open(filepath.Join(xapian_bindings,"config.h"))
 	if err != nil {
 		fmt.Println("error opening config.h ")
