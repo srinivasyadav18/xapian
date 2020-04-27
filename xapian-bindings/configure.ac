@@ -1246,13 +1246,24 @@ if test no != "$with_go" ; then
     GOPATH=`"${GO}" env GOPATH`
     AC_SUBST(GOROOT)
     AC_SUBST(GOPATH)
+    GO_CORE="without-core"
+    if $XAPIAN_CONFIG --libs >/dev/null 2>/dev/null ; then
+      :
+    else
+      GO_CORE="with-core"
+      GO_CXX=`$XAPIAN_CONFIG --cxxflags`
+      GO_LIB=`$XAPIAN_CONFIG --libs`
+      AC_SUBST([GO_CXX])
+      AC_SUBST([GO_LIB])
+    fi
+    AC_SUBST([GO_CORE])
     if test -n "${GOROOT}" ; then
       AC_MSG_RESULT([${GOROOT}])
       AC_MSG_CHECKING(for gopath)
       if test -n "${GOPATH}" ; then
         AC_MSG_RESULT([${GOPATH}])
-	else
-	AC_MSG_RESULT(no)
+      else
+	  AC_MSG_RESULT(no)
       fi
     fi
     if test -z "${GOROOT}" ; then
