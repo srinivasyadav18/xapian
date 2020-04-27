@@ -224,7 +224,7 @@ func buildWithOutCore() (string, string) {
 	ICFLAGS = strings.ReplaceAll(ICFLAGS, "\\", "/")
 	LDFLAGS = strings.ReplaceAll(LDFLAGS, "\\", "/")
 
-	return LDFLAGS, ICFLAGS
+	return ICFLAGS,LDFLAGS
 }
 
 func getFlags(arg string) string {
