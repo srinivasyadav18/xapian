@@ -1,6 +1,6 @@
 skip_tags: true
 clone_depth: 20
-clone_folder: c:\projects\xapian
+clone_folder: c:\msys64\home\xapian
 environment:
   global:
     AUTOMATED_TESTING: 1
