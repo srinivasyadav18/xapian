@@ -11,7 +11,7 @@ install:
   - ps: >-
       $env:CONFIGOPTS="--disable-documentation"
   - ps: >-
-      $env:PATH="C:\msys64\usr\bin;$env:PATH"
+      $env:PATH="C:\msys64\mingw64\bin;C:\msys64\usr\bin;$env:PATH"
   - ps: >-
       $env:CONFIGOPTS+=" --host=x86_64-w64-mingw32"
   - curl https://oligarchy.co.uk/xapian/patches/unicode-data121a.cc > xapian-core\unicode\unicode-data.cc
@@ -19,6 +19,8 @@ install:
   - bash -c 'time ./bootstrap --fetch-url-command="curl -L" xapian-core xapian-bindings'
 build_script:
   - bash -c 'ls /c/msys64'
+  - bash -c 'ls /c/msys64/mingw64'
+  - bash -c 'ls /c/msys64/mingw64/bin'
   - bash -c 'time ./configure $CONFIGOPTS --disable-backend-honey --with-go'
   - bash -c 'time make -j2' < nul
 test_script:
