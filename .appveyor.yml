@@ -11,6 +11,7 @@ environment:
       MSYS2_DIR: msys64
       MSYSTEM: MINGW64
 build_script:
+  - bash -c 'pacman -Sy --noconfirm --needed base-devel mingw-w64-x86_64-doxygen mingw-w64-x86_64-graphviz doxygen swig zlib-devel'
   - bash -c 'time ./bootstrap xapian-core'
   - bash -c 'time ./configure'
   - bash -c 'time make -j2' < nul
