@@ -21,7 +21,7 @@ build_script:
   - bash -c 'ls /c/msys64'
   - bash -c 'ls /c/msys64/mingw64'
   - bash -c 'ls /c/msys64/mingw64/bin'
-  - bash -c 'time ./configure $CONFIGOPTS CXXFLAGS=-fstackprotector --disable-backend-honey --with-go'
+  - bash -c 'time ./configure $CONFIGOPTS --disable-backend-honey --with-go'
   - bash -c 'time make -j2' < nul
 test_script:
   - bash -c 'time make check VERBOSE=1' < nul
